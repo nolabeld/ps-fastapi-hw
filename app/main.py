@@ -1,6 +1,8 @@
-def main():
-    print("Hello from fastapi-hw-purpleschool!")
+from fastapi import FastAPI
+
+app = FastAPI()
 
 
-if __name__ == "__main__":
-    main()
+@app.get("/")
+def root():
+    return {"Score": 10}
