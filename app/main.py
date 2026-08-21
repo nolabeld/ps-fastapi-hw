@@ -1,8 +1,7 @@
 from fastapi import FastAPI
 
+from app.posts import routes
+
 app = FastAPI()
 
-
-@app.get("/")
-def root():
-    return {"Score": 10}
+app.include_router(routes.posts_router)
