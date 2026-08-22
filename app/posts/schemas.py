@@ -5,9 +5,24 @@ class PostPath(BaseModel):
     id: int = Field(gt=0)
 
 
-class PostCreationRequest(PostPath):
+class PostBase(BaseModel):
+    id: int
+
+
+class PostCreateRequest(PostBase):
     content: str
 
 
-class PostUpdateRequest(BaseModel):
+class PostCreateResponse(PostBase):
+    message: str
+
+
+class PostUpdateRequest(PostBase):
     content: str
+
+
+class PostUpdateResponse(PostCreateResponse): ...
+
+
+class PostDeleteResponse(PostBase):
+    message: str
